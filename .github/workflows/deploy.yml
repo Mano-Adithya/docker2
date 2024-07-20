@@ -51,6 +51,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
             docker pull ${{ secrets.DOCKER_USERNAME }}/test-image:latest
             docker stop test-image || true
-            docker rm test-image || true
+            docker rmi test-image || true
             docker run -d --name test-image -p 83:80 ${{ secrets.DOCKER_USERNAME }}/test-image:latest
           EOF
