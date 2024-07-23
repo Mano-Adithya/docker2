@@ -60,5 +60,5 @@ jobs:
             docker image prune -a -f --filter "label!=${{ secrets.DOCKER_USERNAME }}/test-image:latest"
 
             # Run the new container
-            docker run -d --name test-image -p 83:80 ${{ secrets.DOCKER_USERNAME }}/test-image:latest
+            docker run -d --name cont -p 83:80 ${{ secrets.DOCKER_USERNAME }}/test-image:latest
           EOF
